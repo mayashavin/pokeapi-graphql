@@ -1,0 +1,36 @@
+{
+  "name": "pokemon-graphql-server",
+  "author": {
+    "name": "Maya Shavin",
+    "url": "https://mayashavin.com",
+    "email": "dpnminh@gmail.com"
+  },
+  "version": "0.0.1",
+  "description": "OpenGL API for Pokedex",
+  "scripts": {
+    "serve": "babel-node ./src/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "husky": "^4.2.5",
+    "prettier": "2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.13.1",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "graphql-tag": "^2.10.3",
+    "graphql-tools": "^5.0.0",
+    "node-fetch": "^2.6.0",
+    "qs": "^6.9.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
