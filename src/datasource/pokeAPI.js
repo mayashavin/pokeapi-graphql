@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import {
   normalizeHeight,
   normalizeTypes,
@@ -22,7 +21,7 @@ class PokeAPI extends RESTDataSource {
     if (results) {
       const pokemonsList = await Promise.all(
         results.map(async (item) => {
-          const data = await fetch(item.url).then((res) => res.json());
+          const data = await this.pokemon(item.name);
           const { types } = data;
           sort(types);
 
