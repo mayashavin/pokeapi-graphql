@@ -3,10 +3,7 @@
   "builds": [
     {
       "src": "src/index.js",
-      "use": "@now/node-server",
-      "env": {
-        "ENGINE_API_KEY": "@engine_api_key"
-      }
+      "use": "@now/node-server"
     }
   ],
   "routes": [
