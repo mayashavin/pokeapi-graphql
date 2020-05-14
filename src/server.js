@@ -1,18 +1,10 @@
-import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
-import schema from './schema';
+import { ApolloServer } from "apollo-server";
+import schema from "./schema";
 
 const port = process.env.PORT || 8080;
 
-const app = express();
+const apolloServer = new ApolloServer(schema);
 
-const apolloServer = new ApolloServer({ 
-  schema, 
-  introspection: true,
-  playground: true
+apolloServer.listen({ port }).then(({ url }) => {
+  console.log(`🚀 Server ready ${url}`);
 });
-apolloServer.applyMiddleware({ app });
-
-app.listen({ port }, () => {
-  console.log(`🚀 Server ready http://localhost:${port}${apolloServer.graphqlPath}`)
-})
