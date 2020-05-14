@@ -1,16 +1,14 @@
-import express from "express";
-import cors from "cors";
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer } from "apollo-server";
 import schema from "./schema";
 
 const port = process.env.PORT || 8080;
-const app = express();
-const apolloServer = new ApolloServer(schema);
-apolloServer.applyMiddleware({ app, path: "/api" });
-app.use(cors());
 
-app.listen({ port }, () => {
-  console.log(
-    `🚀 Server ready http://localhost:${port}${apolloServer.graphqlPath}`
-  );
+const apolloServer = new ApolloServer({
+  ...schema,
+  cors: true,
+  subscriptions: "/api",
+});
+
+apolloServer.listen({ port }).then(({ url }) => {
+  console.log(`🚀 Server ready ${url}`);
 });
