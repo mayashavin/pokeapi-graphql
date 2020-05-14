@@ -6,7 +6,11 @@ const port = process.env.PORT || 8080;
 
 const app = express();
 
-const apolloServer = new ApolloServer({ schema });
+const apolloServer = new ApolloServer({ 
+  schema, 
+  introspection: true,
+  playground: true
+});
 apolloServer.applyMiddleware({ app });
 
 app.listen({ port }, () => {
