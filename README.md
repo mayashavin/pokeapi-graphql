@@ -7,11 +7,7 @@
 
 This is GraphQL API server written for Pokemon DB (Pokedeck). It is built on top of the current REST API version 2 of [Poke API](https://pokeapi.co/docs/v2.html), with more organized and additional information besides the default data received from the original API.
 
-## Maintainer
-
-[Maya Shavin](https://mayashavin.com)
-
-## Setup
+## Getting started
 
 1.Install dependencies
 
@@ -29,6 +25,9 @@ npm run serve
 
 ![Pokedeck API Playground](https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1589437585/pokedeck_graphql)
 
+## Maintainer
+
+[Maya Shavin](https://mayashavin.com)
 
 ## Credits
 
