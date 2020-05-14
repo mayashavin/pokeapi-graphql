@@ -8,7 +8,8 @@
   "version": "0.0.1",
   "description": "OpenGL API for Pokedex",
   "scripts": {
-    "serve": "babel-node ./src/index.js"
+    "serve": "babel-node src/index.js",
+    "start": "babel-node src/index.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
