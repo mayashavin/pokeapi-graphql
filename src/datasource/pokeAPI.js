@@ -22,20 +22,8 @@ class PokeAPI extends RESTDataSource {
       const pokemonsList = await Promise.all(
         results.map(async (item) => {
           const data = await this.pokemon(item.name);
-          const { types } = data;
-          sort(types);
 
-          const { type } = types[0];
-
-          return {
-            ...data,
-            color: themeColorBasedOnType(type.name),
-            types: normalizeTypes(types),
-            avatar: getAvatarUrl(data.id),
-            height: normalizeHeight(data.height),
-            weight: normalizeWeight(data.weight),
-            abilities: normalizeAbilities(data.abilities),
-          };
+          return data;
         })
       );
 
@@ -48,9 +36,22 @@ class PokeAPI extends RESTDataSource {
     return response;
   }
   async pokemon(id) {
-    const response = await this.get(`pokemon/${id}`);
+    const data = await this.get(`pokemon/${id}`);
 
-    return response;
+    const { types } = data;
+    sort(types);
+
+    const { type } = types[0];
+
+    return {
+      ...data,
+      color: themeColorBasedOnType(type.name),
+      types: normalizeTypes(types),
+      avatar: getAvatarUrl(data.id),
+      height: normalizeHeight(data.height),
+      weight: normalizeWeight(data.weight),
+      abilities: normalizeAbilities(data.abilities),
+    };
   }
 }
 
